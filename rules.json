@@ -1,0 +1,37 @@
+{
+	"field": "type",
+	"equals": "[parameters('resourceType')]"
+},
+
+{
+    "if": {
+        "allOf": [
+            {
+                "field": "type",
+                "in": "[parameters('listOfResourceTypes')]"
+            },
+            {
+                "not": {
+                    "allOf": [
+                        {
+                            "value": "[equals(length(split(parameters('namePattern'), '-')), length(split(field('name'), '-')))]",
+                            "equals": true
+                        },
+                        {
+                            "value": "[equals(toLower(last(split(parameters('namePattern'), '-'))), toLower(last(split(field('name'), '-'))))]",
+                            "equals": true
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "then": {
+        "effect": "[parameters('policyEffect')]"
+    }
+}
+
+
+}
+
+
