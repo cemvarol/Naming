@@ -1,0 +1,18 @@
+"parameters": {
+	"resourceType": {
+		"type": "string",
+		"metadata": {
+			"displayName": "Resource type",
+			"description": "Resource type to enforce naming pattern.",
+			"strongType": "resourceTypes"
+		}
+	},
+	"resourceAbbreviation": {
+		"type": "string",
+		"metadata": {
+			"displayName": "Resource type abbreviation",
+			"description": "A short name for Azure resource type to use in resource names"
+		},
+		"minLength": 2
+	}
+}
